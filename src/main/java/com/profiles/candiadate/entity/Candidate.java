@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@Table(name = "candidates")
 public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +25,78 @@ public class Candidate {
     @Enumerated(EnumType.STRING)
     private CandidateStatus status;
 
+    public Long getCandidateId() {
+        return candidateId;
+    }
+
+    public void setCandidateId(Long candidateId) {
+        this.candidateId = candidateId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
+    }
+
+    public String getPrimarySkill() {
+        return primarySkill;
+    }
+
+    public void setPrimarySkill(String primarySkill) {
+        this.primarySkill = primarySkill;
+    }
+
+    public int getYoe() {
+        return yoe;
+    }
+
+    public void setYoe(int yoe) {
+        this.yoe = yoe;
+    }
+
+    public String getLocationPref() {
+        return locationPref;
+    }
+
+    public void setLocationPref(String locationPref) {
+        this.locationPref = locationPref;
+    }
+
+    public CandidateStatus getStatus(CandidateStatus status) {
+        return this.status;
+    }
+
+    public void setStatus(CandidateStatus status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
@@ -33,11 +106,6 @@ public class Candidate {
         this.createdAt = LocalDateTime.now();
     }
 
-    public void setId(Long id) {
-        this.candidateId = id;
-    }
 
-    public Long getId() {
-        return candidateId;
-    }
+
 }
